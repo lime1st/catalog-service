@@ -16,7 +16,7 @@ class BookJsonTest {
 
     @Test
     void 직렬화_테스트() throws Exception {
-        var book = new Book("1234567890", "Title", "Author", 9.90);
+        var book = Book.of("1234567890", "Title", "Author", 9.90);
         var jsonContent = json.write(book);
         assertThat(jsonContent).extractingJsonPathStringValue("@.isbn")
                 .isEqualTo(book.isbn());
@@ -43,6 +43,6 @@ class BookJsonTest {
 //        JSON 에서 자바 객체로 변환
         assertThat(json.parse(content))
                 .usingRecursiveComparison()
-                .isEqualTo(new Book("1234567890", "Title", "Author", 9.90));
+                .isEqualTo(Book.of("1234567890", "Title", "Author", 9.90));
     }
 }
