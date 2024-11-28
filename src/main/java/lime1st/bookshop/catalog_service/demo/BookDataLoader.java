@@ -23,9 +23,9 @@ public class BookDataLoader {
     public void loadBookTestData() {
         bookRepository.deleteAll();
         var book1 = Book.of("1234567891", "너는 꿈을 꾸는가",
-                "Lime1st", 9.90);
+                "Lime1st", 9.90, "lime");
         var book2 = Book.of("1234567892", "꿈을 쫓는자",
-                "LovePapa", 12.90);
+                "LovePapa", 12.90, "lime");
         bookRepository.saveAll(List.of(book1, book2));
     }
 }
